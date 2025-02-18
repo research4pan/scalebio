@@ -36,6 +36,7 @@ bash run_scalebio_lisa.sh
 - Please configure the `run_scalebio.sh` or `run_scalebio_lisa.sh` to set the model name and all the hyper-parameters.
 - Please also configure the `fsdp_transformer_layer_cls_to_wrap` in `fsdp_config.yaml` for your own model.
 - If you encounter **OSError: [Errno 39] Directory not empty:**, just ignore it and the code won't stop.
+- You may also set `fsdp_offload_params` to `true` for running 32B models.
 
 ### Data Reweighting
 
@@ -56,6 +57,7 @@ conda create -n lmflow python=3.9 -y
 conda activate lmflow
 conda install mpi4py
 pip install -e .
+pip install scikit-learn
 ```
 ### Running the code
 
@@ -66,3 +68,28 @@ You can also run the Supervised Fine-tuning with LISA:
 ```
 bash run_sft_lisa.sh
 ```
+Please also configure the two files to specify the model, the data path, and the hyper-parameters.
+
+
+## Model Evaluation
+
+### Requirements
+
+```
+conda create -n eval python=3.10.9
+conda activate eval
+pip install vllm==0.5.4
+
+pip install pebble
+pip install antlr4-python3-runtime==4.7.2
+pip install sympy==1.12
+pip install latex2sympy2==1.9.1
+pip install word2number==1.1
+```
+
+### Running the code
+
+```
+bash eval_math/automatic_eval/eval_job.sh
+```
+Please specify the model path inside the file.
