@@ -1,3 +1,5 @@
+export TOKENIZERS_PARALLELISM=true
+
 function main() {
     seed=0
     lr_u=2e-6
