@@ -34,7 +34,7 @@ function main() {
               --val-data ${data_dir}/val.json \
               --test-data ${data_dir}/test.json \
               --model $model_and_tok \
-              --lisa 1 \
+              --lisa \
               --micro_batch_size ${micro_batch_size} \
               --global_batch_size $batch_size \
               --max-length 1024 \
