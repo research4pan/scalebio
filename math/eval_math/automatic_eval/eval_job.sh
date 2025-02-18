@@ -28,7 +28,7 @@ model_str=$(basename "$model_and_tok")
 echo "Evaluating model: $model_str"
 echo "Model directory: $model_and_tok"
 
-cd ./math/inference/ && \
+cd ./eval_math/inference/ && \
     bash scripts/register_server_single_sbatch.sh $model_and_tok && \
     sleep 30 && \
     bash scripts/infer_single4.sh llama3_${model_str} \
