@@ -81,6 +81,7 @@ conda activate eval
 pip install vllm==0.5.4
 
 pip install pebble
+pip install timeout_decorator
 pip install antlr4-python3-runtime==4.7.2
 pip install sympy==1.12
 pip install latex2sympy2==1.9.1
