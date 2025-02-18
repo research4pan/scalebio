@@ -17,7 +17,7 @@ do
         --model $MODEL_PATH \
         --gpu-memory-utilization=0.8 \
         --max-num-seqs=200 \
-        --host 127.0.0.1 --tensor-parallel-size 1 \
+        --host 127.0.0.1 --tensor-parallel-size 4 \
         --port $((8003+i)) \
         --trust_remote_code \
         &
