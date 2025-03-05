@@ -94,3 +94,26 @@ pip install word2number==1.1
 bash eval_math/automatic_eval/eval_job.sh
 ```
 Please specify the model path inside the file.
+
+
+# More detailed Instructions:
+
+## Running Scalebio:
+
+You should Specify the ```lr_u``` and ```lr_w``` in the ```run_scalebio.sh```.
+You may also set the experiment for the wandb so that you can easily locate the wandb folder.
+
+Then go to ```wandb/``` to find your experiment folder.
+Then go to ```files/wandb-summary.json```.
+Use the key ```samp prob``` to find the weights for the dataset.
+
+You should pass the weight to ```data_weight.py```, and also specify the Huggingface upload path in the file.
+
+Then, to fine-tune the model, go to ```run_sft.sh```.
+Specify the ```hf_ds``` with huggingface data set.
+Specify the ```model_and_tok``` with the model.
+Specify the ```conv_template``` with LMFlow supported conversation template.
+
+After SFT, the model will be stored in ```test/output_models/```
+
+To evaluate, ```bash eval_math/automatic_eval/eval_job.sh```. Remember to modify the path of the model inside the ```eval_job.sh```.
